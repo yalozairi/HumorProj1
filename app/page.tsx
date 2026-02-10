@@ -7,7 +7,7 @@ export default function Home() {
       <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
         Hello World from Gemini
       </h1>
-      <Link href="/countries" className="text-2xl text-white mt-4">View Countries</Link>
+      <Link href="/university_majors" className="text-2xl text-white mt-4">View University Majors</Link>
     </main>
   );
 }
