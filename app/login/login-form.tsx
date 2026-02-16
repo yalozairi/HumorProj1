@@ -1,12 +1,12 @@
 'use client'
 
 import { createClient } from '@/lib/supabase/client'
-import { getURL } from '@/lib/utils'
 
 export default function LoginForm() {
   const supabase = createClient()
 
   const signInWithGoogle = async () => {
+    const redirectTo = `${window.location.origin}/auth/callback`
     await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
@@ -14,7 +14,7 @@ export default function LoginForm() {
           access_type: 'offline',
           prompt: 'consent',
         },
-        redirectTo: `${getURL()}auth/callback`,
+        redirectTo,
       },
     })
   }
