@@ -18,6 +18,7 @@ export default async function Home() {
         <div className="flex flex-col items-center mt-4">
           <p className="text-white text-xl">Welcome, {user.email}</p>
           <Link href="/university_majors" className="text-2xl text-white mt-4">View University Majors</Link>
+          <Link href="/captions" className="text-2xl text-white mt-2">Rate Captions</Link>
         </div>
       ) : (
         <div className="mt-8">
