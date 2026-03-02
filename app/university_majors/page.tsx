@@ -1,8 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { createClient as createPublicClient } from '@supabase/supabase-js'
 import { redirect } from 'next/navigation'
-import Link from 'next/link'
-import SignOutButton from './sign-out-button'
 
 export default async function UniversityMajors() {
   const supabase = await createClient()
@@ -27,13 +25,6 @@ export default async function UniversityMajors() {
       <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-4">
         University Majors
       </h1>
-      <p className="text-white text-lg mb-2">Welcome, {user.email}</p>
-      <div className="flex gap-4 mb-4">
-        <Link href="/captions" className="text-purple-400 hover:text-purple-300 underline">
-          Rate Captions
-        </Link>
-        <SignOutButton />
-      </div>
       {university_majors && university_majors.length > 0 ? (
         <ul className="py-8">
           {university_majors.map((major) => (
