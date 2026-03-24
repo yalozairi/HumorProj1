@@ -46,7 +46,7 @@ export default function CaptionCard({ caption, userId, initialVote }: CaptionCar
             .from('caption_votes')
             .update({
               vote_value: voteValue,
-              modified_datetime_utc: new Date().toISOString(),
+              modified_by_user_id: userId,
             })
             .eq('profile_id', userId)
             .eq('caption_id', caption.id)
@@ -63,7 +63,8 @@ export default function CaptionCard({ caption, userId, initialVote }: CaptionCar
               vote_value: voteValue,
               profile_id: userId,
               caption_id: caption.id,
-              created_datetime_utc: new Date().toISOString(),
+              created_by_user_id: userId,
+              modified_by_user_id: userId,
             })
 
           if (!error) {
