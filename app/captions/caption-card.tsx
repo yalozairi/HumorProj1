@@ -88,7 +88,7 @@ export default function CaptionCard({ caption, userId, initialVote }: CaptionCar
           className="w-full h-64 object-cover rounded-lg"
         />
       )}
-      <p className="text-white text-lg">{caption.content}</p>
+      <p className="text-white text-lg text-center line-clamp-3 break-words">{caption.content}</p>
       <div className="flex items-center gap-4">
         <button
           onClick={() => handleVote(1)}
