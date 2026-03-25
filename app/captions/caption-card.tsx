@@ -80,7 +80,7 @@ export default function CaptionCard({ caption, userId, initialVote }: CaptionCar
   }
 
   return (
-    <div className="bg-gray-800 rounded-xl p-6 flex flex-col gap-4">
+    <div className="bg-gray-800 rounded-xl p-6 flex flex-col gap-4 overflow-hidden min-w-0">
       {caption.image_url && (
         <img
           src={caption.image_url}
@@ -88,7 +88,7 @@ export default function CaptionCard({ caption, userId, initialVote }: CaptionCar
           className="w-full h-64 object-cover rounded-lg"
         />
       )}
-      <p className="text-white text-lg text-center line-clamp-3 break-words">{caption.content}</p>
+      <p className="text-white text-lg text-center line-clamp-3 break-all">{caption.content}</p>
       <div className="flex items-center gap-4">
         <button
           onClick={() => handleVote(1)}
