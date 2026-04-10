@@ -1,6 +1,11 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import UploadForm from './upload-form'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Caption Lab — Upload Image',
+}
 
 export default async function UploadPage() {
   const supabase = await createClient()

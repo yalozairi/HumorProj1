@@ -3,7 +3,13 @@ import { createClient as createPublicClient } from '@supabase/supabase-js'
 import { redirect } from 'next/navigation'
 import CaptionCard from './caption-card'
 import SortSelector from './sort-selector'
+import ScrollToTop from './scroll-to-top'
 import { Suspense } from 'react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Caption Lab — Rate Captions',
+}
 
 export default async function CaptionsPage({
   searchParams,
@@ -63,7 +69,7 @@ export default async function CaptionsPage({
       </Suspense>
 
       {captions && captions.length > 0 ? (
-        <div className="grid gap-6 w-full max-w-2xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl">
           {captions.map((caption: any) => (
             <CaptionCard
               key={caption.id}
@@ -81,6 +87,8 @@ export default async function CaptionsPage({
       ) : (
         <p className="text-white text-2xl">No captions found.</p>
       )}
+
+      <ScrollToTop />
     </main>
   )
 }

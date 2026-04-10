@@ -85,7 +85,7 @@ export default function CaptionCard({ caption, userId, initialVote }: CaptionCar
         <img
           src={caption.image_url}
           alt="Caption image"
-          className="w-full h-64 object-cover rounded-lg"
+          className="w-full h-48 object-cover rounded-lg"
         />
       )}
       <p className="text-white text-lg text-center line-clamp-3 break-all">{caption.content}</p>

@@ -148,6 +148,25 @@ export default function UploadForm() {
         {isLoading ? stepLabel[step] : 'Generate Captions'}
       </button>
 
+      {/* Loading indicator */}
+      {isLoading && (
+        <div className="flex flex-col items-center gap-3 py-4">
+          <div className="w-full bg-gray-700 rounded-full h-2">
+            <div
+              className="bg-gradient-to-r from-purple-500 to-pink-600 h-2 rounded-full transition-all duration-500"
+              style={{
+                width:
+                  step === 'presign' ? '25%' :
+                  step === 'upload'  ? '50%' :
+                  step === 'register'? '75%' :
+                  '90%'
+              }}
+            />
+          </div>
+          <p className="text-purple-300 text-sm animate-pulse">{stepLabel[step]}</p>
+        </div>
+      )}
+
       {/* Error */}
       {step === 'error' && (
         <div className="bg-red-900 border border-red-500 rounded-xl p-4">

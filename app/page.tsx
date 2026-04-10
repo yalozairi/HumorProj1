@@ -1,6 +1,11 @@
 import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import LoginForm from '@/app/login/login-form'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Caption Lab — Home',
+}
 
 export default async function Home() {
   const supabase = await createClient()
@@ -33,11 +38,6 @@ export default async function Home() {
               className="w-64 text-center px-6 py-3 rounded-xl font-semibold text-purple-300 border border-purple-600 hover:bg-purple-900/30 hover:text-white transition-all"
             >
               Upload & Caption Image
-            </Link>
-          </div>
-          <div className="absolute bottom-8">
-            <Link href="/university_majors" className="text-sm text-gray-500 hover:text-gray-400">
-              [Old Assignment] Click to View Our University Majors!
             </Link>
           </div>
         </>

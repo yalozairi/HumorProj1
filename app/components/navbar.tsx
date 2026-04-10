@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import SignOutButton from '@/app/university_majors/sign-out-button'
-import HomeLink from './home-link'
+import NavLinks from './nav-links'
 
 export default async function Navbar() {
   const supabase = await createClient()
@@ -12,20 +12,15 @@ export default async function Navbar() {
 
   return (
     <nav
-      style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%' }}
-      className="sticky top-0 z-50 bg-gray-800 border-b border-gray-700 px-5 py-3"
+      className="sticky top-0 z-50 bg-gray-800 border-b border-gray-700 px-5 py-3 flex flex-row items-center gap-4"
     >
-      <div style={{ width: '140px', flexShrink: 0 }}>
-        <HomeLink />
-      </div>
+      <NavLinks />
 
-      <div style={{ flex: 1, textAlign: 'center', overflow: 'hidden' }}>
-        <span className="text-gray-300 text-sm block truncate">{user.email}</span>
-      </div>
+      <div className="flex-1" />
 
-      <div style={{ width: '140px', flexShrink: 0, display: 'flex', justifyContent: 'flex-end' }}>
-        <SignOutButton />
-      </div>
+      <span className="text-gray-400 text-sm hidden sm:block truncate max-w-[180px]">{user.email}</span>
+
+      <SignOutButton />
     </nav>
   )
 }
